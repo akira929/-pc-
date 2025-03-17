@@ -12,7 +12,7 @@ import jakarta.persistence.Table;
 import lombok.Data;
 
 @Entity
-@Table
+@Table(name = "houses")
 @Data
 public class House {
 	@Id
@@ -22,6 +22,9 @@ public class House {
 
 	@Column(name = "name")
 	private String name;
+	
+	@Column(name = "image_name")
+	private String imageName;
 
 	@Column(name = "description")
 	private String description;
@@ -30,7 +33,7 @@ public class House {
 	private Integer price;
 
 	@Column(name = "capacity")
-	private Integer capasity;
+	private Integer capacity;
 
 	@Column(name = "postal_code")
 	private String postalCode;
