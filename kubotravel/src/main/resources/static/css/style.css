@@ -52,23 +52,44 @@ footer {
 }
 
 .kubotravel-page-link {
-   color: #5196a6;
- }
- 
- .kubotravel-page-link:hover {
-   color: #407784;
- }
- 
- .kubotravel-active {
-   background-color: #5196a6 !important;
-   border-color: #5196a6 !important;
- }
+	color: #5196a6;
+}
 
- .kubotravel-pre-wrap {
-   /* 改行文字で行を折り返す */
-   white-space: pre-wrap;
- }
- 
+.kubotravel-page-link:hover {
+	color: #407784;
+}
+
+.kubotravel-active {
+	background-color: #5196a6 !important;
+	border-color: #5196a6 !important;
+}
+
+.kubotravel-pre-wrap {
+	/* 改行文字で行を折り返す */
+	white-space: pre-wrap;
+}
+
+.kubotravel-link-danger {
+	color: #f2594b;
+}
+
+.kubotravel-link-danger:hover {
+	color: #a63c3c;
+}
+
+.kubotravel-btn-danger {
+	background-color: #f2594b !important;
+	transition: 0.1s;
+}
+
+.kubotravel-btn-danger:hover {
+	opacity: 0.8;
+}
+
+.kubotravel-dropdown-item:active {
+	background-color: #5196a6;
+}
+
 @media screen and (min-width: 1400px) {
 	.kubotravel-container {
 		max-width: 1200px;
