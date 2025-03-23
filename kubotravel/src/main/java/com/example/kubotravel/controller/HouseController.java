@@ -7,10 +7,12 @@ import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.kubotravel.entity.House;
+import com.example.kubotravel.form.ReservationInputForm;
 import com.example.kubotravel.repository.HouseRepository;
 
 @Controller
@@ -56,7 +58,6 @@ public class HouseController {
 				housePage = houseRepository.findByPriceLessThanEqualOrderByCreatedAtDesc(price, pageable);
 			}
 		} else {
-			housePage = houseRepository.findAll(pageable);
 			if (order != null && order.equals("priceAsc")) {
 				housePage = houseRepository.findAllByOrderByPriceAsc(pageable);
 			} else {
@@ -70,6 +71,16 @@ public class HouseController {
 		model.addAttribute("order", order);
 
 		return "houses/index";
+	}
+	
+	@GetMapping("/{id}")
+	public String show(@PathVariable(name="id") Integer id, Model model) {
+		House house = houseRepository.getReferenceById(id);
+		
+		model.addAttribute("house", house);
+		model.addAttribute("reservationInputForm", new ReservationInputForm());
+		
+		return "houses/show";
 	}
 
 }
